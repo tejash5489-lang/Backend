@@ -1,5 +1,6 @@
 // require("dotenv").config();
 import dotenv from "dotenv";
+import { app } from "./app.js";
 import connectDB from "./db/index.js";    
 
 // import mongoose from "mongoose";
@@ -10,15 +11,16 @@ dotenv.config({
 });
 
 
-connectDB 
-.then(() => {
-   app.listen(process.env.PORT || 3000, () => {
-        console.log(`Server is running on port ${process.env.PORT || 3000}`);
-})
-.catch((error) => {
+connectDB()
+  .then(() => {
+    app.listen(process.env.PORT || 3000, () => {
+      console.log(`Server is running on port ${process.env.PORT || 3000}`);
+    });
+  })
+  .catch((error) => {
     console.error("Failure connecting to MongoDB !!!", error);
     process.exit(1); // Exit the process with an error code
-}
+  });
 
 
 
