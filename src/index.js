@@ -1,4 +1,12 @@
 // require("dotenv").config();
+// for debugging to connect env file
+console.log(
+  "mongo:", !!process.env.MONGODB_URI,
+  "cloud:", !!process.env.CLOUDINARY_CLOUD_NAME,
+  !!process.env.CLOUDINARY_API_KEY,
+  !!process.env.CLOUDINARY_API_SECRET
+);
+
 
 import dns from "node:dns";
 dns.setServers(["8.8.8.8", "1.1.1.1"]);import dotenv from "dotenv";
@@ -8,9 +16,9 @@ import connectDB from "./db/index.js";
 // import mongoose from "mongoose";
 // import {DB_NAME} from "./constants.js";
 
-dotenv.config({
-    path: './.env'
-});
+// dotenv.config({
+//     path: './.env'
+// });
 
 
 connectDB()
