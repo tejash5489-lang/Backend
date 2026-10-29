@@ -135,7 +135,7 @@ const loginUser= asyncHandler(async(req,res)=>{
             "user logged in successfully"
         )
     )
-})
+})  
 
     const logoutUser = asyncHandler(async(req,res)=>{
         User.findByIdAndUpdate(
